@@ -1,0 +1,164 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+#properties {
+	padding-top: clamp(7rem, 9vw, 9rem);
+}
+
+#properties .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+	column-gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+footer .text-\[\#4A6A54\] {
+	color: #8eaa98 !important;
+}
+
+footer .text-\[\#263A28\] {
+	color: #7f9a87 !important;
+}
+
+footer .text-\[\#4A6A54\]:hover,
+footer .text-\[\#263A28\]:hover {
+	color: #d2b477 !important;
+}
+
+.contact-fab-group {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	z-index: 40;
+	right: 1.25rem;
+	bottom: 1.25rem;
+	gap: 0.85rem;
+}
+
+@keyframes contact-fab-enter {
+	from {
+		opacity: 0;
+		transform: translateX(18px) scale(0.88);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
+
+.contact-fab {
+	position: relative;
+	display: inline-flex;
+	width: 3.5rem;
+	height: 3.5rem;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(248, 245, 240, 0.7);
+	border-radius: 9999px;
+	color: #f8f5f0;
+	box-shadow: 0 8px 22px rgba(28, 48, 32, 0.18);
+	animation: contact-fab-enter 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.contact-fab::after {
+	position: absolute;
+	inset: -0.3rem;
+	border: 1px solid currentColor;
+	border-radius: inherit;
+	content: "";
+	opacity: 0;
+	transform: scale(0.8);
+	transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.contact-fab:nth-child(2) {
+	animation-delay: 90ms;
+}
+
+.contact-fab:nth-child(3) {
+	animation-delay: 180ms;
+}
+
+.contact-fab:hover,
+.contact-fab:focus-visible {
+	transform: translateY(-4px) scale(1.06);
+	border-color: #f8f5f0;
+	box-shadow: 0 12px 28px rgba(28, 48, 32, 0.28);
+}
+
+.contact-fab:hover::after,
+.contact-fab:focus-visible::after {
+	opacity: 0.35;
+	transform: scale(1);
+}
+
+.contact-fab:focus-visible {
+	outline: 2px solid #f8f5f0;
+	outline-offset: 4px;
+}
+
+.contact-fab:active {
+	transform: translateY(-1px) scale(0.96);
+}
+
+.contact-fab svg {
+	transition: transform 220ms ease;
+}
+
+.contact-fab:hover svg,
+.contact-fab:focus-visible svg {
+	transform: rotate(-8deg) scale(1.12);
+}
+
+.contact-fab-tooltip {
+	position: absolute;
+	right: calc(100% + 0.75rem);
+	top: 50%;
+	padding: 0.45rem 0.65rem;
+	white-space: nowrap;
+	border: 1px solid #d4c9b8;
+	background: #f8f5f0;
+	color: #1e3a2f;
+	font-size: 0.625rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(0.35rem) translateY(-50%);
+	transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.contact-fab:hover .contact-fab-tooltip,
+.contact-fab:focus-visible .contact-fab-tooltip {
+	opacity: 1;
+	transform: translateX(0) translateY(-50%);
+}
+
+.contact-fab-email {
+	background: #b5945a;
+}
+
+.contact-fab-phone {
+	background: #1e3a2f;
+}
+
+.contact-fab-whatsapp {
+	background: #1fa544;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.contact-fab,
+	.contact-fab svg,
+	.contact-fab-tooltip {
+		animation: none;
+		transition: none;
+	}
+}
+
+@media (min-width: 40rem) {
+	.contact-fab-group {
+		right: 2.25rem;
+		bottom: 2.25rem;
+	}
+}
